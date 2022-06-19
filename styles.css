@@ -1,0 +1,58 @@
+.background {
+    color: black;
+    background-color: antiquewhite;
+    width: 500px;
+    height: 600px;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.hariu {
+    width: 230px;
+    height: 80px;
+    border: 1px solid black;
+    margin: 20px;
+    transform: translateY(15px);
+    background-color: white;
+    border-radius: 20px;
+}
+
+.operators div{
+    width: 50px;
+    height: 70px;
+    border: 1px gray solid;
+    text-align: center;
+    margin: 5px;
+    display: inline-block;
+    background-color: #dddd;
+    cursor: pointer;
+}
+
+.numbers div {
+    width: 50px;
+    height: 70px;
+    border: 1px gray solid;
+    text-align: center;
+    margin: 5px;
+    display: inline-block;
+    background-color: white;
+    cursor: pointer;
+}   
+
+.leftPanel {
+    display: inline-block;
+}
+
+div#tentsuu {
+    display: inline-block;
+    border: 1px solid #3079ED;
+    border-radius: 1px;
+    width: 40px;
+    text-align: center;
+    padding: 127px 10px;
+    margin: 10px 6px 10px 0;
+    vertical-align: top;
+    cursor: pointer;
+    color: #FFF;
+    background-color: #4d90fe;
+    transition: all .2s ease-in-out;
+  }
