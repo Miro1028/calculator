@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Calculator Mission #5</title>
+        <style>
+            body {
+                background-image: url("https://i.pinimg.com/originals/7f/ea/17/7fea175e13ba4a4b29672d15b2497367.jpg");
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            .row {
+                display: flex;
+                justify-content: center;
+                align-items: center;   
+            }
+            .tex {
+                text-align: center;
+                width: 80%;
+                padding-left: 925px;   
+                font-size: 70px;
+            }
+            #buttonId {
+                width: 130px;
+                height: 170px;
+                font-size: 70px;
+                border-radius: 10%;
+                background-color: white;
+                border-color: deepskyblue;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <span id="text" class = "tex" style="margin:0;" >0</span>
+        <div id = "row1" class = "row"></div>
+        <div id = "row2" class = "row"></div>
+        <div id = "row3" class = "row"></div>
+        <div id = "row4" class = "row"></div>
+        <script>
+            var tmp = 0, tmp4 = 0;
+            var num = 0, niit, tmp3="";
+            var tmp2;
+            var global;
+            document.addEventListener('keyup', (event) => {
+                const keyName = event.key;
+                press(keyName);
+            }, false);
+
+            for(let i = 1; i <= 16; i++) {
+                if(i <= 9 ) {
+                    nud(i, i);
+                } else {
+                    if(i == 10) {
+                        nud(i, 0);
+                    }
+                    if(i == 11) {
+                        nud(i, "/");
+                    }
+                    if(i == 12) {
+                        nud(i, "+");
+                    }
+                    if(i == 13) {
+                        nud(i, "-");
+                    }
+                    if(i == 14) {
+                        nud(i, "*");
+                    }
+                    if(i == 15) {
+                        nud(i, "=");
+                    }
+                    if(i == 16) {
+                        nud(i, ".");
+                    }
+                }
+            }
+
+            function press(b) {
+                var text = document.getElementById("text");
+                console.log(b);
+                switch(b){
+                    case '+':
+                        console.log('+ orloo');
+                        global = Number(text.innerHTML) + Number(tmp4);
+                        tmp4 = Number(text.innerHTML);
+                        text.innerHTML = '+';
+                        tmp2 = b;
+                    break;
+                    case '-':
+                        global = Number(text.innerHTML) + Number(tmp4);
+                        tmp4 = Number(text.innerHTML);
+                        text.innerHTML = '-';
+                        tmp2 = b;
+                        break;
+                    case '*':
+                        global = Number(text.innerHTML) + Number(tmp4);
+                        tmp4 = Number(text.innerHTML);
+                        text.innerHTML = '*';
+                        tmp2 = b;
+                        break;
+                    case '/':
+                        global = Number(text.innerHTML) + Number(tmp4);
+                        tmp4 = Number(text.innerHTML);
+                        text.innerHTML = '/';
+                        tmp2 = b;
+                        break;
+                    case '=':
+                        if(tmp2 == '+') {
+                            niit = Number(global) + Number(text.innerHTML);
+                            tmp3 = "";
+                        }
+                        if(tmp2 == '-') {
+                            for(var i = 1; i <  text.innerHTML.length; i++) {
+                                tmp3 += text.innerHTML[i];
+                            }   
+                            niit = Number(global) - Number(tmp3);
+                            tmp3 = "";
+                        }
+                        if(tmp2 == '*') {
+                            for(var i = 1; i <  text.innerHTML.length; i++) {
+                                tmp3 += text.innerHTML[i];
+                            }   
+                            niit = Number(global) * Number(tmp3);
+                            tmp3 = "";
+                        }
+                        if(tmp2 == '/') {
+                            for(var i = 1; i <  text.innerHTML.length; i++) {
+                                tmp3 += text.innerHTML[i];
+                            }   
+                            niit = Number(global) / Number(tmp3);
+                            tmp3 = "";
+                        }
+                        text.innerHTML = niit;
+                    default:
+                        if (text.innerHTML == '0') {
+                            text.innerHTML = b;
+                        }
+                        else if (b != '=') { 
+                            text.innerHTML += b;
+                        }
+                        break;
+                }
+                console.log(Number(text.innerHTML));
+            }
+
+            function nud(a, b) {
+                var t = document.createElement('button');
+                t.id = 'buttonId';
+                t.class = 'buttonClass';
+                t.innerHTML = b;
+                var rowid = "row" + Math.floor((a + 3) / 4);
+                t.setAttribute("onclick", "press('" + b + "')");
+                document.getElementById(rowid).appendChild(t);
+            }
+    	</script>
+    </body>
+</html> 

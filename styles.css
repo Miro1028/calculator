@@ -14,6 +14,9 @@
     transform: translateY(15px);
     background-color: white;
     border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .operators div{
